@@ -22,7 +22,13 @@ try {
         );
         
         // Menampilkan pesan respons dari layanan SOAP
-        echo $komen;
+        if ($komen == "Tambah Data berhasil") {
+            // Mengalihkan ke index.php setelah berhasil menambahkan data
+            header("Location: index.php");
+            exit();
+        } else {
+            echo $komen;
+        }
     }
 } catch (SoapFault $ex) {
     // Menampilkan pesan jika terjadi kesalahan saat memanggil layanan SOAP
