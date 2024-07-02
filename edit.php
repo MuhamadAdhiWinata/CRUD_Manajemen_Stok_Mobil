@@ -1,9 +1,8 @@
 <?php
-// Cek apakah id ada di URL
+
 if (!isset($_GET['id_mobil'])) {
     die('ID mobil tidak ditemukan.');
 }
-
 
 // URI untuk mengakses webservice
 try {
@@ -22,7 +21,6 @@ try {
 
 $mobil = json_decode($data);
 
-// Mengambil detail mobil
 foreach ($mobil as $m) {
     $id_mobil = $m->id_mobil;
     $merk_mobil = $m->merk_mobil;
