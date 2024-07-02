@@ -1,8 +1,9 @@
 <?php
 // Cek apakah id ada di URL
-if (!isset($_GET['id'])) {
+if (!isset($_GET['id_mobil'])) {
     die('ID mobil tidak ditemukan.');
 }
+
 
 // URI untuk mengakses webservice
 try {
@@ -13,7 +14,7 @@ try {
     ];
     // Membaca API
     $api = new SoapClient(NULL, $opt);
-    $data = $api->bacaSatu($_GET['id']);
+    $data = $api->bacaSatu($_GET['id_mobil']);
 } catch (SoapFault $ex) {
     echo $api->__getLastResponse();
     exit();

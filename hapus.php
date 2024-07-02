@@ -23,5 +23,5 @@ try {
 ?>
 <script type="text/javascript">
     alert('<?php echo $komen; ?>');
-    window.location.href = 'client2.php';
+    window.location.href = 'index.php';
 </script>
