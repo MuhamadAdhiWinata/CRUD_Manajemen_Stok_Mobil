@@ -32,50 +32,55 @@ foreach ($mobil as $m) {
 }
 ?>
 
-<center>
-    <h2>Edit Data Mobil</h2>
-    <table>
-        <form action="update.php" method="post" enctype="multipart/form-data">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Data Mobil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Data Mobil</h2>
+        <form action="update.php" method="post" enctype="multipart/form-data" class="form-container">
             <input type="hidden" name="id_mobil" value="<?php echo $id_mobil; ?>">
-            <tr>
-                <td>Merk Mobil</td>
-                <td><input type="text" name="merk_mobil" value="<?php echo $merk_mobil; ?>"></td>
-            </tr>
-            <tr>
-                <td>Tipe Mobil</td>
-                <td><input type="text" name="tipe_mobil" value="<?php echo $tipe_mobil; ?>"></td>
-            </tr>
-            <tr>
-                <td>Warna Mobil</td>
-                <td><input type="text" name="warna_mobil" value="<?php echo $warna_mobil; ?>"></td>
-            </tr>
-            <tr>
-                <td>Gambar Mobil</td>
-                <td>
-                    <input type="file" name="gambar_mobil"> <!-- Ubah input type menjadi file -->
-                    <?php if (!empty($gambar_mobil)): ?>
-                        <br>
-                        <img src="mobil/<?php echo $gambar_mobil; ?>" width="150">
-                    <?php endif; ?>
-                </td>
-            </tr>
-            <tr>
-                <td>Status Mobil</td>
-                <td>
-                    <select name="status_mobil">
-                        <option value="masih ada" <?php if($status_mobil == 'masih ada') echo 'selected'; ?>>Masih Ada</option>
-                        <option value="terjual" <?php if($status_mobil == 'terjual') echo 'selected'; ?>>Terjual</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Harga Mobil</td>
-                <td><input type="text" name="harga_mobil" value="<?php echo $harga_mobil; ?>"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Simpan"></td>
-            </tr>
+            <div class="form-group">
+                <label for="merk_mobil">Merk Mobil</label>
+                <input type="text" id="merk_mobil" name="merk_mobil" value="<?php echo $merk_mobil; ?>">
+            </div>
+            <div class="form-group">
+                <label for="tipe_mobil">Tipe Mobil</label>
+                <input type="text" id="tipe_mobil" name="tipe_mobil" value="<?php echo $tipe_mobil; ?>">
+            </div>
+            <div class="form-group">
+                <label for="warna_mobil">Warna Mobil</label>
+                <input type="text" id="warna_mobil" name="warna_mobil" value="<?php echo $warna_mobil; ?>">
+            </div>
+            <div class="form-group">
+                <label for="gambar_mobil">Gambar Mobil</label>
+                <input type="file" id="gambar_mobil" name="gambar_mobil">
+                <?php if (!empty($gambar_mobil)): ?>
+                    <br>
+                    <img src="mobil/<?php echo $gambar_mobil; ?>" width="150">
+                <?php endif; ?>
+            </div>
+            <div class="form-group">
+                <label for="status_mobil">Status Mobil</label>
+                <select id="status_mobil" name="status_mobil">
+                    <option value="masih ada" <?php if($status_mobil == 'masih ada') echo 'selected'; ?>>Masih Ada</option>
+                    <option value="terjual" <?php if($status_mobil == 'terjual') echo 'selected'; ?>>Terjual</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="harga_mobil">Harga Mobil</label>
+                <input type="text" id="harga_mobil" name="harga_mobil" value="<?php echo $harga_mobil; ?>">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn-save"><i class="fas fa-save"></i> Simpan</button>
+            </div>
         </form>
-    </table>
-</center>
+    </div>
+</body>
+</html>
