@@ -35,7 +35,7 @@ foreach ($mobil as $m) {
 <center>
     <h2>Edit Data Mobil</h2>
     <table>
-        <form action="update.php" method="post">
+        <form action="update.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id_mobil" value="<?php echo $id_mobil; ?>">
             <tr>
                 <td>Merk Mobil</td>
@@ -51,7 +51,13 @@ foreach ($mobil as $m) {
             </tr>
             <tr>
                 <td>Gambar Mobil</td>
-                <td><input type="text" name="gambar_mobil" value="<?php echo $gambar_mobil; ?>"></td>
+                <td>
+                    <input type="file" name="gambar_mobil"> <!-- Ubah input type menjadi file -->
+                    <?php if (!empty($gambar_mobil)): ?>
+                        <br>
+                        <img src="mobil/<?php echo $gambar_mobil; ?>" width="150">
+                    <?php endif; ?>
+                </td>
             </tr>
             <tr>
                 <td>Status Mobil</td>
