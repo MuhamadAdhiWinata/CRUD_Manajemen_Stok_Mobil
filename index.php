@@ -36,7 +36,9 @@ $data = json_decode($response); // Mendekodekan respons JSON menjadi objek PHP
                 <td><?php echo $d->merk_mobil; ?></td>
                 <td><?php echo $d->tipe_mobil; ?></td>
                 <td><?php echo $d->warna_mobil; ?></td>
-                <td><?php echo $d->gambar_mobil; ?></td>
+                <td>
+                    <img src="mobil/<?php echo $d->gambar_mobil; ?>" alt="<?php echo $d->merk_mobil; ?>" width="100">
+                </td>
                 <td><?php echo $d->status_mobil; ?></td>
                 <td><?php echo $d->harga_mobil; ?></td>
                 <td>
@@ -48,4 +50,3 @@ $data = json_decode($response); // Mendekodekan respons JSON menjadi objek PHP
     </table>
 </body>
 </html>
-
