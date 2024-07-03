@@ -30,6 +30,11 @@ foreach ($mobil as $m) {
     $status_mobil = $m->status_mobil;
     $harga_mobil = $m->harga_mobil;
 }
+
+// Fungsi untuk memformat angka ke dalam format Rupiah
+function formatRupiah($angka) {
+    return 'Rp ' . number_format($angka, 0, ',', '.');
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,32 +43,32 @@ foreach ($mobil as $m) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Data Mobil</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container1">
         <h2>Edit Data Mobil</h2>
-        <form action="update.php" method="post" enctype="multipart/form-data" class="form-container">
-            <input type="hidden" name="id_mobil" value="<?php echo $id_mobil; ?>">
+        <form action="update.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id_mobil" value="<?php echo htmlspecialchars($id_mobil); ?>">
+            <input type="hidden" name="gambar_mobil" value="<?php echo htmlspecialchars($gambar_mobil); ?>">
             <div class="form-group">
                 <label for="merk_mobil">Merk Mobil</label>
-                <input type="text" id="merk_mobil" name="merk_mobil" value="<?php echo $merk_mobil; ?>">
+                <input type="text" id="merk_mobil" name="merk_mobil" value="<?php echo htmlspecialchars($merk_mobil); ?>">
             </div>
             <div class="form-group">
                 <label for="tipe_mobil">Tipe Mobil</label>
-                <input type="text" id="tipe_mobil" name="tipe_mobil" value="<?php echo $tipe_mobil; ?>">
+                <input type="text" id="tipe_mobil" name="tipe_mobil" value="<?php echo htmlspecialchars($tipe_mobil); ?>">
             </div>
             <div class="form-group">
                 <label for="warna_mobil">Warna Mobil</label>
-                <input type="text" id="warna_mobil" name="warna_mobil" value="<?php echo $warna_mobil; ?>">
+                <input type="text" id="warna_mobil" name="warna_mobil" value="<?php echo htmlspecialchars($warna_mobil); ?>">
             </div>
             <div class="form-group">
                 <label for="gambar_mobil">Gambar Mobil</label>
                 <input type="file" id="gambar_mobil" name="gambar_mobil">
                 <?php if (!empty($gambar_mobil)): ?>
                     <br>
-                    <img src="mobil/<?php echo $gambar_mobil; ?>" width="150">
+                    <img src="mobil/<?php echo htmlspecialchars($gambar_mobil); ?>" width="150">
                 <?php endif; ?>
             </div>
             <div class="form-group">
@@ -75,10 +80,11 @@ foreach ($mobil as $m) {
             </div>
             <div class="form-group">
                 <label for="harga_mobil">Harga Mobil</label>
-                <input type="text" id="harga_mobil" name="harga_mobil" value="<?php echo $harga_mobil; ?>">
+                <input type="text" id="harga_mobil" name="harga_mobil" value="<?php echo formatRupiah($harga_mobil); ?>">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn-save"><i class="fas fa-save"></i> Simpan</button>
+                <button type="submit">Simpan</button>
+                <a href="index.php" class="btn-back">Kembali</a>
             </div>
         </form>
     </div>

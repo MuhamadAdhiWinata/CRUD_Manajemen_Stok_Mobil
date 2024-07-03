@@ -39,48 +39,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menambah Data Mobil</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <center>
+    <div class="container1">
         <h2>Menambah Data Mobil</h2>
-        <table>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
-                <tr>
-                    <td>Merk Mobil</td>
-                    <td><input type="text" name="merk_mobil" required /></td>
-                </tr>
-                <tr>
-                    <td>Tipe Mobil</td>
-                    <td><input type="text" name="tipe_mobil" required /></td>
-                </tr>
-                <tr>
-                    <td>Warna Mobil</td>
-                    <td><input type="text" name="warna_mobil" required /></td>
-                </tr>
-                <tr>
-                    <td>Harga Mobil</td>
-                    <td><input type="text" name="harga_mobil" required /></td>
-                </tr>
-                <tr>
-                    <td>Gambar Mobil</td>
-                    <td><input type="file" name="gambar_mobil" required /></td>
-                </tr>
-                <tr>
-                    <td>Status Mobil</td>
-                    <td>
-                        <select name="status_mobil" required>
-                            <option value="masih ada">Masih Ada</option>
-                            <option value="terjual">Terjual</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="Simpan" /></td>
-                </tr>
-            </form>
-        </table>
-    </center>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="merk_mobil">Merk Mobil</label>
+                <input type="text" id="merk_mobil" name="merk_mobil" required>
+            </div>
+            <div class="form-group">
+                <label for="tipe_mobil">Tipe Mobil</label>
+                <input type="text" id="tipe_mobil" name="tipe_mobil" required>
+            </div>
+            <div class="form-group">
+                <label for="warna_mobil">Warna Mobil</label>
+                <input type="text" id="warna_mobil" name="warna_mobil" required>
+            </div>
+            <div class="form-group">
+                <label for="harga_mobil">Harga Mobil</label>
+                <input type="text" id="harga_mobil" name="harga_mobil" required>
+            </div>
+            <div class="form-group">
+                <label for="gambar_mobil">Gambar Mobil</label>
+                <input type="file" id="gambar_mobil" name="gambar_mobil" required>
+            </div>
+            <div class="form-group">
+                <label for="status_mobil">Status Mobil</label>
+                <select id="status_mobil" name="status_mobil" required>
+                    <option value="masih ada">Masih Ada</option>
+                    <option value="terjual">Terjual</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Simpan</button>
+                <a href="index.php" class="btn-back" style="text-decoration: none; color: white; display: inline-block; padding: 10px 20px; background-color: #d9534f; border-radius: 4px; text-align: center; margin-top: 10px;">Kembali</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

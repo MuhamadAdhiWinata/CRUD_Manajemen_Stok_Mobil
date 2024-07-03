@@ -8,6 +8,11 @@ $opt = [
 $api = new SoapClient(NULL, $opt);
 $response = $api->ambilData(); // Memanggil metode ambilData dari layanan SOAP
 $data = json_decode($response); // Mendekodekan respons JSON menjadi objek PHP
+
+// Fungsi untuk memformat angka ke dalam format Rupiah
+function formatRupiah($angka){
+    return 'Rp ' . number_format($angka, 0, ',', '.');
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,14 +20,13 @@ $data = json_decode($response); // Mendekodekan respons JSON menjadi objek PHP
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Harga Barang</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Daftar Stock Mobil</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Daftar Harga Barang</h1>
-        <a href="tambah.php" class="btn-add"><i class="fas fa-plus"></i> Tambah Data</a>
+        <h1>Daftar Stock Mobil</h1>
+        <a href="tambah.php" class="btn-add">Tambah Data</a>
         <table>
             <thead>
                 <tr>
@@ -47,10 +51,10 @@ $data = json_decode($response); // Mendekodekan respons JSON menjadi objek PHP
                             <img src="mobil/<?php echo htmlspecialchars($d->gambar_mobil); ?>" alt="<?php echo htmlspecialchars($d->merk_mobil); ?>" width="100">
                         </td>
                         <td><?php echo htmlspecialchars($d->status_mobil); ?></td>
-                        <td><?php echo htmlspecialchars($d->harga_mobil); ?></td>
+                        <td><?php echo formatRupiah(htmlspecialchars($d->harga_mobil)); ?></td>
                         <td class="action-buttons">
-                            <a href='edit.php?id_mobil=<?php echo htmlspecialchars($d->id_mobil); ?>' class="edit"><i class="fas fa-edit"></i> Edit</a>
-                            <a href='hapus.php?id_mobil=<?php echo htmlspecialchars($d->id_mobil); ?>' class="delete"><i class="fas fa-trash-alt"></i> Hapus</a>
+                            <a href='edit.php?id_mobil=<?php echo htmlspecialchars($d->id_mobil); ?>' class="edit">Edit</a>
+                            <a href='hapus.php?id_mobil=<?php echo htmlspecialchars($d->id_mobil); ?>' class="delete">Hapus</a>
                         </td>
                     </tr>
                 <?php } ?>
