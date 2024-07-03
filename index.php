@@ -22,11 +22,49 @@ function formatRupiah($angka){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Stock Mobil</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#search').on('input', function() {
+                var keyword = $(this).val();
+                $.ajax({
+                    url: 'search.php',
+                    type: 'GET',
+                    data: { keyword: keyword },
+                    success: function(response) {
+                        var data = JSON.parse(response);
+                        var rows = '';
+                        data.forEach(function(d) {
+                            rows += '<tr>' +
+                                        '<td>' + d.id_mobil + '</td>' +
+                                        '<td>' + d.merk_mobil + '</td>' +
+                                        '<td>' + d.tipe_mobil + '</td>' +
+                                        '<td>' + d.warna_mobil + '</td>' +
+                                        '<td><img src="mobil/' + d.gambar_mobil + '" alt="' + d.merk_mobil + '" width="100"></td>' +
+                                        '<td>' + d.status_mobil + '</td>' +
+                                        '<td>' + formatRupiah(d.harga_mobil) + '</td>' +
+                                        '<td class="action-buttons">' +
+                                            '<a href="edit.php?id_mobil=' + d.id_mobil + '" class="edit">Edit</a>' +
+                                            '<a href="hapus.php?id_mobil=' + d.id_mobil + '" class="delete">Hapus</a>' +
+                                        '</td>' +
+                                    '</tr>';
+                        });
+                        $('tbody').html(rows);
+                    }
+                });
+            });
+        });
+
+        function formatRupiah(angka) {
+            return 'Rp ' + Number(angka).toLocaleString('id-ID');
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>Daftar Stock Mobil</h1>
         <a href="tambah.php" class="btn-add">Tambah Data</a>
+        <input type="text" id="search" placeholder="Cari mobil...">
         <table>
             <thead>
                 <tr>
@@ -62,9 +100,12 @@ function formatRupiah($angka){
         </table>
     </div>
     <footer>
-    <center>Created by:<br/>
-    Muhamad Adhi Winata (NIM: 215610059)<br/>
-    Muhammad Noor Cholis Majid (NIM: 215610084)</center>
+        <center>
+            Create By : <br/>
+            Muhamad Adhi Winata - 215610059 <br/>
+            Muhammad Noor Cholis - 215610084 
+        </center> 
     </footer>
+    <br/>
 </body>
 </html>

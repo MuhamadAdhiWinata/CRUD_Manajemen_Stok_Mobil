@@ -51,7 +51,7 @@ class Service1 {
         } else {
             return "Error: " . $sql . "<br>" . $this->konek->error;
         }
-    }    
+    }
 
     function hapusData($id_mobil)
     {
@@ -80,7 +80,31 @@ class Service1 {
       }
       return json_encode($return_mobil);
   }
-  
+    function cariData($keyword) {
+        $keyword = $this->konek->real_escape_string($keyword); // Prevent SQL injection
+        $return_brg = array();
+        $sql = "SELECT * FROM stokmobil 
+                WHERE merk_mobil LIKE '%$keyword%' 
+                OR tipe_mobil LIKE '%$keyword%' 
+                OR warna_mobil LIKE '%$keyword%' 
+                OR status_mobil LIKE '%$keyword%' 
+                OR harga_mobil LIKE '%$keyword%'";
+        $hasil = $this->konek->query($sql);
+
+        while ($rows = $hasil->fetch_array()) {
+            $return_brg[] = array(
+                'id_mobil' => $rows['id_mobil'],
+                'merk_mobil' => $rows['merk_mobil'],
+                'tipe_mobil' => $rows['tipe_mobil'],
+                'warna_mobil' => $rows['warna_mobil'],
+                'gambar_mobil' => $rows['gambar_mobil'],
+                'status_mobil' => $rows['status_mobil'],
+                'harga_mobil' => $rows['harga_mobil']
+            );
+        }
+        return json_encode($return_brg);
+    }
+ 
   
 }
 
