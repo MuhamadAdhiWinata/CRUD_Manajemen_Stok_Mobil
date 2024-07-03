@@ -10,11 +10,11 @@ class Service1 {
     }
 
     function ambilData() {
-        $return_brg = array(); // Inisialisasi variabel
+        $return_mobil = array(); // Inisialisasi variabel
         $hasil = $this->konek->query("SELECT * FROM stokmobil");
 
         while ($rows = $hasil->fetch_array()) {
-            $return_brg[] = array(
+            $return_mobil[] = array(
                 'id_mobil' => $rows['id_mobil'],
                 'merk_mobil' => $rows['merk_mobil'],
                 'tipe_mobil' => $rows['tipe_mobil'],
@@ -24,7 +24,7 @@ class Service1 {
                 'harga_mobil' => $rows['harga_mobil']
             );
         }
-        return json_encode($return_brg);
+        return json_encode($return_mobil);
     }
 
     function tambahData($merk_mobil, $tipe_mobil, $warna_mobil, $gambar_mobil, $status_mobil, $harga_mobil) {
@@ -82,7 +82,7 @@ class Service1 {
   }
     function cariData($keyword) {
         $keyword = $this->konek->real_escape_string($keyword); // Prevent SQL injection
-        $return_brg = array();
+        $return_mobil = array();
         $sql = "SELECT * FROM stokmobil 
                 WHERE merk_mobil LIKE '%$keyword%' 
                 OR tipe_mobil LIKE '%$keyword%' 
@@ -92,7 +92,7 @@ class Service1 {
         $hasil = $this->konek->query($sql);
 
         while ($rows = $hasil->fetch_array()) {
-            $return_brg[] = array(
+            $return_mobil[] = array(
                 'id_mobil' => $rows['id_mobil'],
                 'merk_mobil' => $rows['merk_mobil'],
                 'tipe_mobil' => $rows['tipe_mobil'],
@@ -102,7 +102,7 @@ class Service1 {
                 'harga_mobil' => $rows['harga_mobil']
             );
         }
-        return json_encode($return_brg);
+        return json_encode($return_mobil);
     }
  
   
