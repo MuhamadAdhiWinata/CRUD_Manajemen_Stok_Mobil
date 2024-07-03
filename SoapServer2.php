@@ -51,7 +51,7 @@ class Service1 {
         } else {
             return "Error: " . $sql . "<br>" . $this->konek->error;
         }
-    }
+    }    
 
     function hapusData($id_mobil)
     {

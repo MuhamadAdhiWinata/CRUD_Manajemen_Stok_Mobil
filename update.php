@@ -4,6 +4,15 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     die("Metode tidak diizinkan.");
 }
 
+function parseRupiah($harga) {
+    $harga = str_replace('Rp ', '', $harga);
+    $harga = str_replace('.', '', $harga);
+    return intval($harga);
+}
+
+$harga_mobil = parseRupiah($_POST['harga_mobil']);
+
+
 // URI untuk mengakses webservice
 try {
     $opt = [
@@ -34,8 +43,8 @@ try {
         $_POST['warna_mobil'],
         $gambar_mobil,
         $_POST['status_mobil'],
-        $_POST['harga_mobil']
-    );
+        $harga_mobil
+    );    
 } catch (SoapFault $ex) {
     echo $api->__getLastResponse();
     exit();

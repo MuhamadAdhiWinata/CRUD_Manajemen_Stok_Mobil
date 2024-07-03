@@ -61,5 +61,10 @@ function formatRupiah($angka){
             </tbody>
         </table>
     </div>
+    <footer>
+    <center>Created by:<br/>
+    Muhamad Adhi Winata (NIM: 215610059)<br/>
+    Muhammad Noor Cholis Majid (NIM: 215610084)</center>
+    </footer>
 </body>
 </html>

@@ -28,7 +28,7 @@ foreach ($mobil as $m) {
     $warna_mobil = $m->warna_mobil;
     $gambar_mobil = $m->gambar_mobil;
     $status_mobil = $m->status_mobil;
-    $harga_mobil = $m->harga_mobil;
+    $harga_mobil = intval($m->harga_mobil); 
 }
 
 // Fungsi untuk memformat angka ke dalam format Rupiah
