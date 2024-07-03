@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2024 at 09:09 AM
+-- Generation Time: Jul 03, 2024 at 06:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,12 +42,12 @@ CREATE TABLE `stokmobil` (
 --
 
 INSERT INTO `stokmobil` (`id_mobil`, `merk_mobil`, `tipe_mobil`, `warna_mobil`, `gambar_mobil`, `status_mobil`, `harga_mobil`) VALUES
-(1, 'Toyota', 'Avanza', 'Putih', NULL, 'masih ada', 200000000.00),
-(2, 'Honda', 'Civic', 'Hitam', NULL, 'terjual', 350000000.00),
-(3, 'Suzuki', 'Ertiga', 'Merah', NULL, 'masih ada', 220000000.00),
-(4, 'Mitsubishi', 'Xpander', 'Abu-abu', NULL, 'masih ada', 250000000.00),
-(5, 'Nissan', 'March', 'Biru', NULL, 'terjual', 180000000.00),
-(8, 'Honda', 'Brio', 'Biru', 'tidak ada', 'masih ada', 80000000.00);
+(15, 'Toyota', 'Avanza', 'Putih', 'avanza-jputih.jpg', 'masih ada', 200000000.00),
+(18, 'Honda', 'Civic', 'Hitam', 'Civic Hitam.png', 'masih ada', 300000000.00),
+(19, 'Suzuki', 'Ertiga', 'Merah', 'Ertiga Merah.png', 'masih ada', 120000000.00),
+(21, 'Mitsubhisi', 'Xpander', 'Abu abu', 'xpander-abu abu.jpg', 'masih ada', 250000000.00),
+(22, 'Nissan', 'March', 'Biru', 'march blue.png', 'masih ada', 120000000.00),
+(23, 'Wuling', 'Almaz', 'Abu abu', 'Wuling Almaz.png', 'masih ada', 256000000.00);
 
 --
 -- Indexes for dumped tables
@@ -67,7 +67,7 @@ ALTER TABLE `stokmobil`
 -- AUTO_INCREMENT for table `stokmobil`
 --
 ALTER TABLE `stokmobil`
-  MODIFY `id_mobil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_mobil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
