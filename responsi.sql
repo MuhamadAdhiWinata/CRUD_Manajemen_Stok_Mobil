@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2024 at 06:41 PM
+-- Generation Time: Jul 04, 2024 at 09:47 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,7 +47,7 @@ INSERT INTO `stokmobil` (`id_mobil`, `merk_mobil`, `tipe_mobil`, `warna_mobil`, 
 (19, 'Suzuki', 'Ertiga', 'Merah', 'Ertiga Merah.png', 'masih ada', 120000000.00),
 (21, 'Mitsubhisi', 'Xpander', 'Abu abu', 'xpander-abu abu.jpg', 'masih ada', 250000000.00),
 (22, 'Nissan', 'March', 'Biru', 'march blue.png', 'masih ada', 120000000.00),
-(23, 'Wuling', 'Almaz', 'Abu abu', 'Wuling Almaz.png', 'masih ada', 256000000.00);
+(25, 'Wuling', 'Almaz', 'Abu abu', 'Wuling Almaz.png', 'masih ada', 260000000.00);
 
 --
 -- Indexes for dumped tables
@@ -67,7 +67,7 @@ ALTER TABLE `stokmobil`
 -- AUTO_INCREMENT for table `stokmobil`
 --
 ALTER TABLE `stokmobil`
-  MODIFY `id_mobil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_mobil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
